@@ -1,0 +1,5 @@
+portal£ºspringboot+redis
+
+protocol£ºhttp
+
+service£ºspringboot+redis+mysql
