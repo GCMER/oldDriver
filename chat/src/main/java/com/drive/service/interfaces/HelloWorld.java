@@ -1,4 +1,4 @@
-package service;
+package com.drive.service.interfaces;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,7 +18,7 @@ public class HelloWorld
     @ResponseBody
     String home()
     {
-        return "Hello World ! 杨健康sb";
+        return "Hello World ! 几个亿的项目启动了，颤抖吧。。。。。。";
     }
 
     public static void main(String[] args) throws Exception
