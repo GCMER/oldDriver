@@ -3,8 +3,8 @@ Implementation-Vendor: Pivotal Software, Inc.
 Implementation-Title: chat
 Implementation-Version: 1.0-SNAPSHOT
 Implementation-Vendor-Id: old.driver
-Build-Jdk: 1.7.0_67
-Built-By: Administrator
+Build-Jdk: 1.7.0_76
+Built-By: king
 Created-By: Maven Integration for Eclipse
 Implementation-URL: http://projects.spring.io/spring-boot/chat/
 
