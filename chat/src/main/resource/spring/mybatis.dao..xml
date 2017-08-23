@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<context:property-placeholder location="classpath:mysql.properties" />  
+<context:property-placeholder location="classpath:mysql.properties"
+                              xmlns:context="http://www.springframework.org/schema/context"/>
   
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
     <property name="driverClassName" value="${jdbc.driverClassName}" />  
@@ -15,7 +16,7 @@
     <property name="dataSource" ref="dataSource" />  
 </bean>  
   
-<!— mapper bean -->  
+<!-- mapper bean -->
 <bean id="userIdentityDao" class="org.mybatis.spring.MapperFactoryBean">  
     <property name="mapperInterface" value="com.drive.service.dao.UserIdentityDao" />  
     <property name="sqlSessionFactory" ref="sqlSessionFactory" />  
