@@ -1,8 +1,8 @@
-package com.drive.service.dao;
+package com.drive.service.repository.dao;
 
-import com.drive.service.dao.entity.IdentityInfo;
+import com.drive.service.repository.entity.IdentityInfo;
 
-@org.springframework.stereotype.Repository
+
 public interface UserIdentityDao {
 	public void createIdentity(IdentityInfo identity);
 	public void deleteIdentity(IdentityInfo identity);

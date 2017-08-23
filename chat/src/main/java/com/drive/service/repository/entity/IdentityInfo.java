@@ -1,4 +1,4 @@
-package com.drive.service.dao.entity;
+package com.drive.service.repository.entity;
 
 import java.util.Date;
 

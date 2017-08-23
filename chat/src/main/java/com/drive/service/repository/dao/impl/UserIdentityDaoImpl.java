@@ -1,7 +1,7 @@
-package com.drive.service.dao.impl;
+package com.drive.service.repository.dao.impl;
 
-import com.drive.service.dao.UserIdentityDao;
-import com.drive.service.dao.entity.IdentityInfo;
+import com.drive.service.repository.dao.UserIdentityDao;
+import com.drive.service.repository.entity.IdentityInfo;
 
 public class UserIdentityDaoImpl implements UserIdentityDao{
 

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.drive.service.dao.UserIdentityDao;
-import com.drive.service.dao.entity.IdentityInfo;
+import com.drive.service.repository.dao.UserIdentityDao;
+import com.drive.service.repository.entity.IdentityInfo;
 
 /**
  * Created by jiangtingfeng on 2017/8/21.

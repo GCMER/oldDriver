@@ -2,9 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">  
 <configuration>  
     <typeAliases>  
-        <typeAlias alias="IdentityInfo" type="com.drive.service.dao.entity.IdentityInfo"/>  
+        <typeAlias alias="IdentityInfo" type="com.drive.service.dao.repository.entity.IdentityInfo"/>  
     </typeAliases>  
     <mappers>  
-        <mapper resource="mybatis/mysql/IdentityInfoMapper.xml" />  
+        <mapper resource="classpath*:chat.sqlmap/mysql/chat.sqlmap_*.xml" />  
     </mappers>  
 </configuration>

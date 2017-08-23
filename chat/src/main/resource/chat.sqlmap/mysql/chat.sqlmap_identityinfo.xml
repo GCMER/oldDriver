@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-<mapper namespace="com.drive.service.dao.UserIdentityDao">  
+<mapper namespace="chat.identityinfo_mapper">  
   
     <resultMap type="IdentityInfo" id="identityInfoResultMap">  
         <id property="identityID" column=""identityID""/>  
@@ -8,7 +8,7 @@
         <result property="updateTime" column="updateTime"/>  
     </resultMap>  
        
-    <select id="getIdentityID" parameterType="Integer" resultType="IdentityInfo" resultMap="identityInfoResultMap">  
+    <select id="getIdentityID" parameterType="Integer" resultType="IdentityInfo">  
         <![CDATA[ 
             SELECT * from chat_user_identity 
                 WHERE identityID = #{identityID}  
