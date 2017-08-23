@@ -16,7 +16,7 @@
     <property name="dataSource" ref="dataSource" />  
 </bean>  
   
-<!-- mapper bean -->
+<!— mapper bean -->  
 <bean id="userIdentityDao" class="org.mybatis.spring.MapperFactoryBean">  
     <property name="mapperInterface" value="com.drive.service.dao.UserIdentityDao" />  
     <property name="sqlSessionFactory" ref="sqlSessionFactory" />  
