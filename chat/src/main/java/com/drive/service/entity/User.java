@@ -1,4 +1,4 @@
-package com.drive.service.dao;
+package com.drive.service.entity;
 
 /**
  * Created by jiangtingfeng on 2017/8/23.

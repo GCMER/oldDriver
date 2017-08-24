@@ -17,7 +17,7 @@ import com.drive.service.repository.entity.IdentityInfo;
  */
 
 @SpringBootApplication
-@MapperScan(value ="com.drive.service.dao")
+@MapperScan(value ="com.drive.service.entity")
 public class HelloWorld
 {
     public static void main(String[] args) throws Exception

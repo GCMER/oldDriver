@@ -1,7 +1,7 @@
 package com.drive.service.controller;
 
-import com.drive.service.dao.User;
-import com.drive.service.dao.UserMapper;
+import com.drive.service.entity.User;
+import com.drive.service.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

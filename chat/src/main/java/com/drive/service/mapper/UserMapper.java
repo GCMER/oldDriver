@@ -1,5 +1,6 @@
-package com.drive.service.dao;
+package com.drive.service.mapper;
 
+import com.drive.service.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
