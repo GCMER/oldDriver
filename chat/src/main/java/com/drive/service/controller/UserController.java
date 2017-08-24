@@ -20,7 +20,7 @@ public class UserController
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public User getUser(@RequestParam("id") Integer id)
     {
-        User user = userMapper.getUserName(id);
+        User user = userMapper.getUser(id);
         return user;
     }
 

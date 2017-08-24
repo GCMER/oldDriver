@@ -13,8 +13,8 @@ import java.util.List;
 @Mapper
 public interface UserMapper
 {
-    @Select("SELECT name FROM user WHERE id =#{id}")
-    User getUserName(Integer id);
+    @Select("SELECT * FROM user WHERE id =#{id}")
+    User getUser(Integer id);
 
     @Select("SELECT * FROM user")
     List<User> getAll();
