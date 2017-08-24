@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<context:property-placeholder location="classpath:mysql.properties"
-                              xmlns:context="http://www.springframework.org/schema/context"/>
+<context:property-placeholder location="classpath:mysql.properties" />  
   
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
     <property name="driverClassName" value="${jdbc.driverClassName}" />  
