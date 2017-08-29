@@ -14,8 +14,8 @@ import java.util.List;
 @Mapper
 public interface UserMapper
 {
-    @Select("SELECT * FROM user WHERE id =#{id}")
-    User getUser(Integer id);
+    @Select("SELECT name FROM user WHERE userid =#{id}")
+    String getUserName(Integer id);
 
     @Select("SELECT * FROM user")
     List<User> getAll();

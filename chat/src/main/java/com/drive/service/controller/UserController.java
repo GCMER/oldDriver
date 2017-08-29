@@ -17,11 +17,11 @@ public class UserController
     private UserMapper userMapper;
 
     //-http://localhost:8080/getUser?id=1
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public User getUser(@RequestParam("id") Integer id)
+    @RequestMapping(value = "/getUserName", method = RequestMethod.GET)
+    public String getUserName(@RequestParam("id") Integer id)
     {
-        User user = userMapper.getUser(id);
-        return user;
+        String name = userMapper.getUserName(id);
+        return "终于搞定了------------" + name;
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)

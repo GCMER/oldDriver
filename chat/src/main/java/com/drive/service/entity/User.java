@@ -5,25 +5,25 @@ package com.drive.service.entity;
  */
 public class User
 {
-    private int userId;
+    private Integer userId;
 
     private String userName;
 
-    private int age;
+    private Integer age;
 
 
-    public User(String userName,int age)
+    public User(String userName,Integer age)
     {
         this.age = age;
         this.userName = userName;
     }
 
-    public int getUserId()
+    public Integer getUserId()
     {
         return userId;
     }
 
-    public void setUserId(int userId)
+    public void setUserId(Integer userId)
     {
         this.userId = userId;
     }
@@ -38,12 +38,12 @@ public class User
         this.userName = userName;
     }
 
-    public int getAge()
+    public Integer getAge()
     {
         return age;
     }
 
-    public void setAge(int age)
+    public void setAge(Integer age)
     {
         this.age = age;
     }
