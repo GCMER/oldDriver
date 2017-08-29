@@ -5,45 +5,50 @@ package com.drive.service.entity;
  */
 public class User
 {
-    private Integer userId;
+    private int userId;
 
-    private String userName;
+    private String name;
 
-    private Integer age;
+    private int age;
 
 
-    public User(String userName,Integer age)
+    public User()
     {
-        this.age = age;
-        this.userName = userName;
+
     }
 
-    public Integer getUserId()
+    public User(String userName,int age)
+    {
+        this.age = age;
+        this.name = userName;
+    }
+
+    public int getUserId()
     {
         return userId;
     }
 
-    public void setUserId(Integer userId)
+    public void setUserId(int userId)
     {
         this.userId = userId;
     }
 
     public String getUserName()
     {
-        return userName;
+        return name;
     }
 
     public void setUserName(String userName)
     {
-        this.userName = userName;
+        this.name = userName;
     }
 
-    public Integer getAge()
+    public int getAge()
     {
         return age;
     }
 
-    public void setAge(Integer age)
+    public void setAge(int age)
     {
         this.age = age;
     }
@@ -53,7 +58,7 @@ public class User
     {
         return "User{" +
             "userId=" + userId +
-            ", userName='" + userName + '\'' +
+            ", userName='" + name + '\'' +
             ", age='" + age + '\'' +
             '}';
     }
