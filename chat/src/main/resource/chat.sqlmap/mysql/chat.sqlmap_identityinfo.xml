@@ -3,7 +3,7 @@
 <mapper namespace="chat.identityinfo_mapper">  
   
     <resultMap type="IdentityInfo" id="identityInfoResultMap">  
-        <id property="identityID" column=""identityID""/>  
+        <id property="identityID" column="identityID"/>
         <result property="createTime" column="createTime"/>  
         <result property="updateTime" column="updateTime"/>  
     </resultMap>  
