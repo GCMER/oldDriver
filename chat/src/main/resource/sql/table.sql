@@ -36,3 +36,36 @@ INSERT INTO `user` VALUES ('4', '老姜', '100000');
 INSERT INTO `user` VALUES ('5', '司洪凯', '1000000');
 INSERT INTO `user` VALUES ('6', '小黑妮', '1000000');
 INSERT INTO `user` VALUES ('7', 'happily晔', '18');
+
+
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : mysql_chat
+Source Server Version : 50717
+Source Host           : localhost:3306
+Source Database       : springboot
+
+Target Server Type    : MYSQL
+Target Server Version : 50717
+File Encoding         : 65001
+
+Date: 2017-08-30 16:00:36
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `chat_user_identity`
+-- ----------------------------
+DROP TABLE IF EXISTS `chat_user_identity`;
+CREATE TABLE `chat_user_identity` (
+  `identityID` varchar(40) NOT NULL,
+  `createTime` date DEFAULT NULL,
+  `updateTime` date DEFAULT NULL,
+  PRIMARY KEY (`identityID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of chat_user_identity
+-- ----------------------------
