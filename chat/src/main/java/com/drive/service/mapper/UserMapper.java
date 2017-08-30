@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by jiangtingfeng on 2017/8/23.
  */
-@Mapper
+
 public interface UserMapper
 {
     @Select("SELECT name FROM user WHERE userid =#{id}")

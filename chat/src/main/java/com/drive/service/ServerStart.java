@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by jiangtingfeng on 2017/8/24.
  */
 @SpringBootApplication
-@MapperScan(value ="*.mapper")
+@MapperScan(value ="com.drive.service.mapper")
 public class ServerStart
 {
     public static void main(String[] args) throws Exception
