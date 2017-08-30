@@ -1,9 +1,9 @@
 package com.drive.service.repository.dao.impl;
 
-import com.drive.service.repository.dao.UserIdentityDao;
+import com.drive.service.repository.dao.IdentityDao;
 import com.drive.service.repository.entity.IdentityInfo;
 
-public class UserIdentityDaoImpl implements UserIdentityDao{
+public class UserIdentityDaoImpl implements IdentityDao {
 
 	@Override
 	public void createIdentity(IdentityInfo identity) {

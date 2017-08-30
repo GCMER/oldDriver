@@ -2,7 +2,7 @@ package com.drive.service.controller;
 
 import com.drive.service.generator.IDGeneratorEnum;
 import com.drive.service.generator.IDGeneratorFactory;
-import com.drive.service.repository.dao.UserIdentityDao;
+import com.drive.service.repository.dao.IdentityDao;
 import com.drive.service.repository.entity.IdentityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,7 +20,7 @@ import java.util.Date;
 public class UserControllerIdentity
 {
     @Autowired
-    private UserIdentityDao userIdentityDao;
+    private IdentityDao userIdentityDao;
 
     @Autowired
     @Qualifier("idGengeratorFactory")
