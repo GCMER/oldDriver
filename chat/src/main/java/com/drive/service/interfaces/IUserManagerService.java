@@ -1,6 +1,5 @@
 package com.drive.service.interfaces;
 
-import com.drive.service.domain.request.GetUserInfoRequest;
 import com.drive.service.domain.request.UserAuthRequest;
 import com.drive.service.domain.request.UserRegisterRequest;
 import com.drive.service.domain.response.GetUserInfoResponse;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 @RestController
 public class IUserManagerService {
@@ -39,7 +40,7 @@ public class IUserManagerService {
 		AccountInfo accountInfo = userRegistRequest.getAccountInfo();
 		//生成身份标识
 		String identityID = generator.get(IDGeneratorEnum.IDENTITY).generate();
-		identityInfo.setIdentityID();
+		identityInfo.setIdentityID(identityID);
 		identityInfo.setCreateTime(new Date());
 		identityInfo.setUpdateTime(new Date());
 
