@@ -26,7 +26,7 @@ public class UserControllerIdentity
     @Qualifier("idGengeratorFactory")
     private IDGeneratorFactory generator;
 
-    @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
+    @RequestMapping(value = "/getIdentity", method = RequestMethod.GET)
     public String getAccountByIdentityID(@RequestParam("id") Integer identityID)
     {
         IdentityInfo identityInfo = null;
@@ -37,7 +37,7 @@ public class UserControllerIdentity
         return identityInfo==null?"null":identityInfo.getIdentityID();
     }
 
-    @RequestMapping(value = "/createAccount",method = RequestMethod.GET)
+    @RequestMapping(value = "/createIdentity",method = RequestMethod.GET)
     public String createAccount()
     {
         String identityID = generator.get(IDGeneratorEnum.IDENTITY).generate();
@@ -49,7 +49,7 @@ public class UserControllerIdentity
         return "success";
     }
 
-    @RequestMapping(value = "/deleteAccount",method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteIdentity",method = RequestMethod.GET)
     public String deleteAccount(@RequestParam("id") String identityID)
     {
         IdentityInfo identity = new IdentityInfo();

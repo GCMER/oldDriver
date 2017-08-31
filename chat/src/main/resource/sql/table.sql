@@ -69,3 +69,42 @@ CREATE TABLE `chat_user_identity` (
 -- ----------------------------
 -- Records of chat_user_identity
 -- ----------------------------
+
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : mysql_chat
+Source Server Version : 50717
+Source Host           : localhost:3306
+Source Database       : springboot
+
+Target Server Type    : MYSQL
+Target Server Version : 50717
+File Encoding         : 65001
+
+Date: 2017-08-31 09:28:12
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `chat_user_account`
+-- ----------------------------
+DROP TABLE IF EXISTS `chat_user_account`;
+CREATE TABLE `chat_user_account` (
+  `identityID` varchar(40) NOT NULL,
+  `accountType` tinyint(4) NOT NULL,
+  `accountName` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `nickName` varchar(40) NOT NULL,
+  `sex` tinyint(4) DEFAULT '1',
+  `headImage` varchar(200) DEFAULT NULL,
+  `location` varchar(10) DEFAULT '571',
+  `signature` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`identityID`),
+  KEY `accountName` (`accountName`,`accountType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of chat_user_account
+-- ----------------------------

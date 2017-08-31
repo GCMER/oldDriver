@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.drive.service.repository.dao.AccountInfoDao" >
+        <resultMap id="BaseResultMap" type="com.drive.service.repository.entity.AccountInfo" >
+            <id column="identityID" property="identityID" jdbcType="VARCHAR" />
+            <result column="accountType" property="accountType" jdbcType="TINYINT" />
+            <result column="accountName" property="accountName" jdbcType="VARCHAR" />
+            <result column="password" property="password" jdbcType="VARCHAR"/>
+            <result column="nickName" property="nickName" jdbcType="VARCHAR" />
+            <result column="sex" property="sex" jdbcType="TINYINT" />
+            <result column="headImage" property="headImage" jdbcType="VARCHAR" />
+            <result column="location" property="location" jdbcType="VARCHAR" />
+            <result column="signature" property="signature" jdbcType="VARCHAR" />
+        </resultMap>
+
+        <sql id="Base_Column_List" >
+            identityID, accountType, accountName, password, nickName, sex, headImage, location, signature
+        </sql>
+
+        <select id="getAccount" parameterType="java.lang.String" resultMap="BaseResultMap" >
+            SELECT
+            <include refid="Base_Column_List" />
+            FROM chat_user_account
+            WHERE identityID = #{identityID}
+        </select>
+
+        <insert id="createAccount" parameterType="com.drive.service.repository.entity.AccountInfo" >
+            INSERT INTO
+            chat_user_account
+            (<include refid="Base_Column_List" />)
+            VALUES
+            (#{identityID}, #{accountType}, #{accountName}, #{password}, #{nickName}, #{sex}, #{headImage}, #{location}, #{signature})
+        </insert>
+
+        <update id="updateAccount" parameterType="com.drive.service.repository.entity.AccountInfo" >
+            UPDATE
+            chat_user_account
+            SET
+            <if test="nickName != null">nickName = #{nickName},</if>
+            <if test="passWord != null">passWord = #{passWord},</if>
+            <if test="headImage != null">headImage = #{headImage},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="signature != null">signature = #{signature},</if>
+            accountType = #{accountType}
+            WHERE
+            identityID = #{identityID}
+        </update>
+
+        <delete id="deleteAccount" parameterType="java.lang.String" >
+            DELETE FROM
+            chat_user_account
+            WHERE
+            identityID =#{identityID}
+        </delete>
+    </mapper>

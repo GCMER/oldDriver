@@ -16,7 +16,7 @@ public class AccountInfo {
     //昵称
     private String nickName;
 
-    //性别:1、男 2、女 3、人妖
+    //性别:1、男 2、女 3、其他
     private int sex;
 
     //头像url

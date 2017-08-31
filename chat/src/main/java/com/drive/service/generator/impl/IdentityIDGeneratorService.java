@@ -15,9 +15,17 @@ public class IdentityIDGeneratorService implements IDGeneratorService, Initializ
 
     private ApplicationContext applicationContext;
 
+    public static Object sync = new Object();
+
     @Override
     public String generate() {
-        return UUID.randomUUID().toString().replaceAll("-","");
+        String identityID = null;
+        synchronized(sync)
+        {
+            identityID = UUID.randomUUID().toString();
+        }
+
+        return null==identityID?null:identityID.replaceAll("-","");
     }
 
     @Override
