@@ -26,7 +26,7 @@ public class UserControllerAccount
     }
 
     @RequestMapping(value = "/createAccount",method = RequestMethod.GET)
-    public String createAccount()
+    public AccountInfo createAccount()
     {
         AccountInfo account = new AccountInfo();
         account.setIdentityID("123");
@@ -39,7 +39,7 @@ public class UserControllerAccount
         account.setSex(1);
         account.setSignature("43");
         accountInfoDao.createAccount(account);
-        return "success";
+        return account;
     }
 
     @RequestMapping(value = "/deleteAccount",method = RequestMethod.GET)
@@ -48,6 +48,4 @@ public class UserControllerAccount
         accountInfoDao.deleteAccount(identityID);
         return "删除账号成功！";
     }
-
-
 }
