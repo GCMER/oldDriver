@@ -28,13 +28,13 @@ public class IUserManagerService {
 	private IdentityDao userIdentityDao;
 
 	@Autowired
-	@Qualifier("idGengeratorFactory")
+	@Qualifier("idGeneratorFactory")
 	private IDGeneratorFactory generator;
 
 	@RequestMapping(value = "/register" , method = RequestMethod.POST)
 	public UserRegisterResponse register(@PathVariable UserRegisterRequest userRegistRequest) {
 		UserRegisterResponse response = new UserRegisterResponse();
-		IdentityInfo identityInfo = userRegistRequest.getIdentityInfo();
+		IdentityInfo identityInfo = new IdentityInfo();
 		AccountInfo accountInfo = userRegistRequest.getAccountInfo();
 		//生成身份标识
 		String identityID = generator.get(IDGeneratorEnum.IDENTITY).generate();
@@ -43,6 +43,7 @@ public class IUserManagerService {
 		identityInfo.setUpdateTime(new Date());
 
 		accountInfo.setIdentityID(identityID);
+		accountInfo.setUpdateTime(new Date());
 
 		userIdentityDao.createIdentity(identityInfo);
 		accountInfoDao.createAccount(accountInfo);
