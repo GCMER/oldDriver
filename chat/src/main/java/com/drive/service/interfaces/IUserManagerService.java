@@ -13,14 +13,12 @@ import com.drive.service.repository.entity.AccountInfo;
 import com.drive.service.repository.entity.IdentityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
+@RequestMapping(value = "/interface")
 public class IUserManagerService {
 
 	@Autowired
@@ -33,8 +31,8 @@ public class IUserManagerService {
 	@Qualifier("idGengeratorFactory")
 	private IDGeneratorFactory generator;
 
-	@RequestMapping(value = "/interface/register" , method = RequestMethod.POST)
-	public UserRegisterResponse register(UserRegisterRequest userRegistRequest) {
+	@RequestMapping(value = "/register" , method = RequestMethod.POST)
+	public UserRegisterResponse register(@PathVariable UserRegisterRequest userRegistRequest) {
 		UserRegisterResponse response = new UserRegisterResponse();
 		IdentityInfo identityInfo = userRegistRequest.getIdentityInfo();
 		AccountInfo accountInfo = userRegistRequest.getAccountInfo();
