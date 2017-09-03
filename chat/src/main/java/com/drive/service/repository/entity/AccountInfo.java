@@ -1,5 +1,9 @@
 package com.drive.service.repository.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
+import java.util.Date;
+
 public class AccountInfo {
     //身份ID，与IdentityInfo中的identityID关联
     private String identityID;
@@ -27,6 +31,18 @@ public class AccountInfo {
 
     //个性签名
     private String signature;
+
+    //最后更新时间
+    @JSONField(format = "yyyyMMddHHmmss")
+    private Date updateTime;
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public String getIdentityID() {
         return identityID;
@@ -98,5 +114,21 @@ public class AccountInfo {
 
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountInfo{" +
+                "identityID='" + identityID + '\'' +
+                ", accountType=" + accountType +
+                ", accountName='" + accountName + '\'' +
+                ", password='" + password + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", sex=" + sex +
+                ", headImage='" + headImage + '\'' +
+                ", location='" + location + '\'' +
+                ", signature='" + signature + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

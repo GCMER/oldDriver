@@ -15,5 +15,5 @@ public interface IdentityDao {
 	void updateIdentity(IdentityInfo identity);
 
 	@Select("SELECT * FROM chat_user_identity WHERE identityID = #{identityID}")
-	IdentityInfo getIdentity(Integer identityID);
+	IdentityInfo getIdentity(String identityID);
 }

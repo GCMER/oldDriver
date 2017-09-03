@@ -1,13 +1,17 @@
 package com.drive.service.repository.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class IdentityInfo {
 
 	private String identityID;
-	
+
+	@JSONField(format = "yyyyMMddHHmmss")
 	private Date createTime;
-	
+
+	@JSONField(format = "yyyyMMddHHmmss")
 	private Date updateTime;
 
 	public String getIdentityID() {

@@ -6,12 +6,12 @@ import com.drive.service.repository.dao.IdentityDao;
 import com.drive.service.repository.entity.IdentityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jiangtingfeng on 2017/8/23.
@@ -23,18 +23,18 @@ public class UserControllerIdentity
     private IdentityDao userIdentityDao;
 
     @Autowired
-    @Qualifier("idGengeratorFactory")
+    @Qualifier("idGeneratorFactory")
     private IDGeneratorFactory generator;
 
     @RequestMapping(value = "/getIdentity", method = RequestMethod.GET)
-    public String getAccountByIdentityID(@RequestParam("id") Integer identityID)
+    public IdentityInfo getAccountByIdentityID(@RequestParam("id") String identityID)
     {
         IdentityInfo identityInfo = null;
-        if(null != identityID && identityID != 0)
+        if(null != identityID && identityID.trim().length()>0)
         {
             identityInfo = userIdentityDao.getIdentity(identityID);
         }
-        return identityInfo==null?"null":identityInfo.getIdentityID();
+        return identityInfo;
     }
 
     @RequestMapping(value = "/createIdentity",method = RequestMethod.GET)
@@ -58,5 +58,14 @@ public class UserControllerIdentity
         return "删除账号成功！";
     }
 
+    @RequestMapping(value = "/createIdentityByJson")
+    @ResponseBody
+    public IdentityInfo createIdentityByJson(@RequestBody IdentityInfo identityInfo)
+    {
+        String identityID = generator.get(IDGeneratorEnum.IDENTITY).generate();
+        identityInfo.setIdentityID(identityID);
+        userIdentityDao.createIdentity(identityInfo);
+        return identityInfo;
+    }
 
 }

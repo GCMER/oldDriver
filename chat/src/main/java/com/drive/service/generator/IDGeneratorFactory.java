@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-@Component("idGengeratorFactory")
+@Component("idGeneratorFactory")
 public class IDGeneratorFactory implements InitializingBean, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
