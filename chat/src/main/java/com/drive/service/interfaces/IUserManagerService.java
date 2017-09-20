@@ -14,7 +14,6 @@ import com.drive.service.repository.entity.IdentityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
 
 @RestController
@@ -31,7 +30,7 @@ public class IUserManagerService {
 	@Qualifier("idGeneratorFactory")
 	private IDGeneratorFactory generator;
 
-	@RequestMapping(value = "/register" , method = RequestMethod.POST)
+	@RequestMapping(value = "/register" , method = RequestMethod.POST,consumes = "application/json",produces = "application/json; charset=utf-8")
 	public UserRegisterResponse register(@PathVariable UserRegisterRequest userRegistRequest) {
 		UserRegisterResponse response = new UserRegisterResponse();
 		IdentityInfo identityInfo = new IdentityInfo();
@@ -61,11 +60,17 @@ public class IUserManagerService {
 		return null;
 	}
 
-	@RequestMapping(value = "/interface/getUserInfo" , method = RequestMethod.GET)
+	@RequestMapping(value = "/getUserInfo" , method = RequestMethod.GET)
 	public GetUserInfoResponse getUserInfo(@RequestParam("id") String identityID) {
 
+		GetUserInfoResponse response = new GetUserInfoResponse();
 
-		return null;
+		IdentityInfo identityInfo = userIdentityDao.getIdentity(identityID);
+		AccountInfo accountInfo = accountInfoDao.getAccount(identityID);
+
+		response.setIdentityInfo(identityInfo);
+		response.setAccountInfo(accountInfo);
+		return response;
 	}
 
 }
