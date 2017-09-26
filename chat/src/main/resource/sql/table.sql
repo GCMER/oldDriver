@@ -101,7 +101,7 @@ CREATE TABLE `chat_user_account` (
   `headImage` varchar(200) DEFAULT NULL,
   `location` varchar(10) DEFAULT '571',
   `signature` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`identityID`),
+  PRIMARY KEY (`accountName`),
   KEY `accountName` (`accountName`,`accountType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

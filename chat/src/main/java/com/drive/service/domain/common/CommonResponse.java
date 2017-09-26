@@ -1,10 +1,32 @@
 package com.drive.service.domain.common;
 
-import java.util.Map;
+import com.drive.service.domain.response.Response;
 
-public abstract class CommonResponse {
+public class CommonResponse {
 
-	//通用响应扩展信息
-	protected Map<String,String> extInfo;
-	
+	//响应结果
+	private Result result;
+
+	private Response date;
+
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
+	public Response getDate() {
+		return date;
+	}
+
+	public void setDate(Response date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "CommonResponse{" + "result=" + result + ", date=" + date + '}';
+	}
 }

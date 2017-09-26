@@ -3,7 +3,7 @@ package com.drive.service.domain.response;
 import com.drive.service.repository.entity.AccountInfo;
 import com.drive.service.repository.entity.IdentityInfo;
 
-public class GetUserInfoResponse {
+public class GetUserInfoResponse extends Response{
     private IdentityInfo identityInfo;
     private AccountInfo accountInfo;
 

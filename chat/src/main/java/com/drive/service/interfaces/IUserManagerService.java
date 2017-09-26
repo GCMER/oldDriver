@@ -1,5 +1,8 @@
 package com.drive.service.interfaces;
 
+import com.drive.service.domain.common.CommonResponse;
+import com.drive.service.domain.common.Constants;
+import com.drive.service.domain.common.Result;
 import com.drive.service.domain.request.UserAuthRequest;
 import com.drive.service.domain.request.UserRegisterRequest;
 import com.drive.service.domain.response.GetUserInfoResponse;
@@ -14,6 +17,7 @@ import com.drive.service.repository.entity.IdentityInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 
 @RestController
@@ -31,10 +35,10 @@ public class IUserManagerService {
 	private IDGeneratorFactory generator;
 
 	@RequestMapping(value = "/register" , method = RequestMethod.POST,consumes = "application/json",produces = "application/json; charset=utf-8")
-	public UserRegisterResponse register(@PathVariable UserRegisterRequest userRegistRequest) {
+	public CommonResponse register(@RequestBody UserRegisterRequest userRegisterRequest) {
 		UserRegisterResponse response = new UserRegisterResponse();
 		IdentityInfo identityInfo = new IdentityInfo();
-		AccountInfo accountInfo = userRegistRequest.getAccountInfo();
+		AccountInfo accountInfo = userRegisterRequest.getAccountInfo();
 		//生成身份标识
 		String identityID = generator.get(IDGeneratorEnum.IDENTITY).generate();
 		identityInfo.setIdentityID(identityID);
@@ -45,12 +49,25 @@ public class IUserManagerService {
 		accountInfo.setUpdateTime(new Date());
 
 		userIdentityDao.createIdentity(identityInfo);
-		accountInfoDao.createAccount(accountInfo);
+		try {
+			accountInfoDao.createAccount(accountInfo);
+		}catch(Exception e)
+		{
+			System.out.println(e.getStackTrace());
+			System.out.println(e.getClass());
+		}
 
 		response.setIdentityInfo(identityInfo);
 		response.setAccountInfo(accountInfo);
+		Result result = new Result();
+		result.setResultCode(Constants.ResultCode.SUCCESS);
+		result.setResultDesc("Register Success");
 
-		return response;
+		CommonResponse commonResponse = new CommonResponse();
+		commonResponse.setResult(result);
+		commonResponse.setDate(response);
+
+		return commonResponse;
 	}
 
 
@@ -61,7 +78,7 @@ public class IUserManagerService {
 	}
 
 	@RequestMapping(value = "/getUserInfo" , method = RequestMethod.GET)
-	public GetUserInfoResponse getUserInfo(@RequestParam("id") String identityID) {
+	public CommonResponse getUserInfo(@RequestParam("id") String identityID) {
 
 		GetUserInfoResponse response = new GetUserInfoResponse();
 
@@ -70,7 +87,15 @@ public class IUserManagerService {
 
 		response.setIdentityInfo(identityInfo);
 		response.setAccountInfo(accountInfo);
-		return response;
+		Result result = new Result();
+		result.setResultCode(Constants.ResultCode.SUCCESS);
+		result.setResultDesc("Register Success");
+
+		CommonResponse commonResponse = new CommonResponse();
+		commonResponse.setResult(result);
+		commonResponse.setDate(response);
+
+		return commonResponse;
 	}
 
 }

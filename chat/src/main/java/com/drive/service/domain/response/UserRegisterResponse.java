@@ -1,10 +1,9 @@
 package com.drive.service.domain.response;
 
-import com.drive.service.domain.common.CommonResponse;
 import com.drive.service.repository.entity.AccountInfo;
 import com.drive.service.repository.entity.IdentityInfo;
 
-public class UserRegisterResponse extends CommonResponse{
+public class UserRegisterResponse extends Response{
     private IdentityInfo identityInfo;
     private AccountInfo accountInfo;
 

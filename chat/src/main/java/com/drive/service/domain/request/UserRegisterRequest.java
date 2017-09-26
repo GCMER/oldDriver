@@ -1,9 +1,8 @@
 package com.drive.service.domain.request;
 
-import com.drive.service.domain.common.CommonRequest;
 import com.drive.service.repository.entity.AccountInfo;
 
-public class UserRegisterRequest extends CommonRequest{
+public class UserRegisterRequest extends Request{
     private AccountInfo accountInfo;
 
     public AccountInfo getAccountInfo() {
