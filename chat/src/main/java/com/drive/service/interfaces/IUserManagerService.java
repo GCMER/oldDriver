@@ -48,6 +48,8 @@ public class IUserManagerService {
 		accountInfo.setIdentityID(identityID);
 		accountInfo.setUpdateTime(new Date());
 
+
+
 		userIdentityDao.createIdentity(identityInfo);
 		try {
 			accountInfoDao.createAccount(accountInfo);
