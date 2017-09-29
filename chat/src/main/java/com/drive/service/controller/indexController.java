@@ -26,4 +26,17 @@ public class indexController
         mode.addAttribute("project",project);
         return "index";
     }
+
+    @RequestMapping("/login")
+    public String login(ModelMap mode)
+    {
+
+        return "login";
+    }
+
+    @RequestMapping("/welcome")
+    public String welcome(ModelMap mode)
+    {
+        return "welcome";
+    }
 }
