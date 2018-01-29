@@ -20,8 +20,7 @@ public class IdentityIDGeneratorService implements IDGeneratorService, Initializ
     @Override
     public String generate() {
         String identityID = null;
-        synchronized(sync)
-        {
+        synchronized(sync) {
             identityID = UUID.randomUUID().toString();
         }
 
